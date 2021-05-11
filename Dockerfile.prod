@@ -2,7 +2,7 @@ FROM golang:1.15-alpine as builder
 
 WORKDIR $GOPATH/src/package/app/
 COPY hello.go .
-RUN go build -o /go/app
+RUN go build -ldflags "-w" -o /go/app
 
 FROM scratch
 
